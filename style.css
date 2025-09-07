@@ -1,0 +1,263 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0a0a0a, #111);
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  background: #333;
+  color: #333;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.navbar .nav-right a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.navbar .nav-right a:hover {
+  color: #8dd600;
+}
+
+/* Filter di Navbar */
+.navbar .filter-label {
+  color: #ffffff;
+  font-weight: 500;
+  margin-left: 20px;
+}
+
+.navbar select {
+  margin-left: 10px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  background: #2c2c3e;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.navbar select:hover {
+  background: #383850;
+  transform: scale(1.05);
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+}
+header h1 {
+  font-size: 24px;
+  color: #b3ff00;
+}
+
+/* Button */
+.btn {
+  background: #b3ff00;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: #8dd600;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+.hero h2 { font-size: 40px; }
+.hero span { color: #b3ff00; }
+
+/* Dashboard Cards */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 15px;
+  padding: 20px 50px;
+}
+.card {
+  background: rgba(40, 40, 40, 0.6);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 3px 8px rgba(0, 255, 0, 0.2);
+  font-size: 14px;
+}
+.card h3 {
+  color: #b3ff00;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+.card p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Table */
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  background: rgba(30, 30, 30, 0.8);
+  border-radius: 10px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+table th, table td {
+  padding: 12px;
+  text-align: center;
+}
+table th {
+  background: #b3ff00;
+  color: black;
+}
+table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Chart */
+.chart-container {
+  width: 80%;
+  margin: 50px auto;
+}
+
+/* Form */
+.form-box {
+  width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(40, 40, 40, 0.8);
+  border-radius: 12px;
+  text-align: center;
+}
+.form-box input, .form-box select {
+  margin: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* Burger button */
+.burger {
+  display: none;
+  font-size: 22px;
+  line-height: 1;
+  padding: 8px 10px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ============================= */
+/*   RESPONSIVE DESIGN           */
+/* ============================= */
+@media (max-width: 1024px) {
+  .dashboard { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar { flex-wrap: wrap; padding: 10px 20px; }
+  .navbar h2 { font-size: 16px; }
+  .burger { display: block; }
+
+  .nav-right {
+    order: 3;
+    width: 100%;
+    background: #222;
+    border-radius: 0 0 10px 10px;
+    padding: 0 15px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .3s ease;
+  }
+  .nav-right.show { max-height: 380px; }
+  .nav-right a, .nav-right label, .nav-right select {
+    display: block;
+    margin: 12px 0;
+    color: #fff;
+    text-align: left;
+  }
+
+  /* Cards */
+  .dashboard { grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px 20px; }
+  .card { padding: 10px; font-size: 13px; }
+  .card h3 { font-size: 14px; }
+
+  /* Table */
+  table { font-size: 12px; width: 100%; }
+  table th, table td { padding: 8px; }
+
+  /* Chart */
+  .chart-container { width: 95%; margin: 20px auto; }
+}
+
+/* Supaya tabel tidak melebar */
+table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+}
+
+/* Atur ukuran font & padding di HP */
+@media (max-width: 768px) {
+  table th, table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
+/* Untuk layar sangat kecil */
+@media (max-width: 480px) {
+  table th, table td {
+    font-size: 11px;
+    padding: 4px;
+  }
+
+  /* Kolom aksi lebih kecil */
+  table td .btn-edit,
+  table td .btn-delete {
+    font-size: 10px;
+    padding: 3px 5px;
+    min-width: 40px;
+  }
+
+  /* Agar tabel tetap muat, jangan paksa lebarnya */
+  table {
+    table-layout: fixed;
+    word-wrap: break-word;
+  }
+}
+
