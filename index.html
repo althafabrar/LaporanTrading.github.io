@@ -96,52 +96,6 @@
     }
   </script>
   
-  <!-- database script -->
-  <script>
-    let trades = JSON.parse(localStorage.getItem("trades")) || [];
-  
-    function renderTable() {
-      const tbody = document.querySelector("#tradeTable tbody");
-      tbody.innerHTML = "";
-      trades.forEach((trade, index) => {
-        tbody.innerHTML += `
-          <tr>
-            <td>${trade.tanggal}</td>
-            <td>${trade.pair}</td>
-            <td>${trade.posisi}</td>
-            <td>${trade.lot}</td>
-            <td>${trade.hasil}</td>
-            <td>
-              <button onclick="editTrade(${index})">Edit</button>
-              <button onclick="deleteTrade(${index})">Hapus</button>
-            </td>
-          </tr>
-        `;
-      });
-    }
-  
-    function addTrade() {
-      const tanggal = document.querySelector("#tanggal").value;
-      const pair = document.querySelector("#pair").value;
-      const posisi = document.querySelector("#posisi").value;
-      const lot = document.querySelector("#lot").value;
-      const hasil = document.querySelector("#hasil").value;
-  
-      trades.push({ tanggal, pair, posisi, lot, hasil });
-      localStorage.setItem("trades", JSON.stringify(trades));
-      renderTable();
-    }
-  
-    function deleteTrade(index) {
-      trades.splice(index, 1);
-      localStorage.setItem("trades", JSON.stringify(trades));
-      renderTable();
-    }
-  
-    // Jalankan pertama kali
-    document.addEventListener("DOMContentLoaded", renderTable);
-  </script>
-  
   <script src="script.js"></script>
 </body>
 </html>
