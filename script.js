@@ -1,10 +1,8 @@
 let trades = JSON.parse(localStorage.getItem("trades")) || [
-  {date: "2025-09-01", pair: "BTC/USDT", position: "Buy", lot: 0.5, result: 500},
-  {date: "2025-09-02", pair: "ETH/USDT", position: "Sell", lot: 1, result: 200},
-  {date: "2025-09-03", pair: "XAU/USD", position: "Buy", lot: 0.2, result: -100}
+
 ];
 
-let initialBalance = parseFloat(localStorage.getItem("initialBalance")) || 1000;
+let initialBalance = parseFloat(localStorage.getItem("initialBalance")) || 0;
 
 // Ambil filter
 function getFilteredTrades() {
@@ -187,3 +185,4 @@ renderTable();
 
 // Event listener supaya filter langsung jalan
 document.getElementById("filterSelect").addEventListener("change", renderTable);
+
